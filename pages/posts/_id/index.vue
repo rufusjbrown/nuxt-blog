@@ -15,22 +15,17 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
-  asyncData(context, callback) {
-    setTimeout(() => {
-      callback(null, {
-        loadedPost: {
-          id: '1', 
-          title: 'First Post (ID: ' + context.params.id + ')', 
-          previewText: 'This is our first post!',
-          author: 'Rufus',
-          updatedDate: new Date(), 
-          content: 'Some dummy content text, not the preview text',
-          thumbnail: 'https://i1.wp.com/www.brookings.edu/wp-content/uploads/2017/11/metro_20171121_tech-empowers-tech-polarizes-mark-muro.jpg?w=745&crop=0%2C38px%2C100%2C421px&ssl=1'
+  asyncData(context) {
+    return axios.get('https://nuxt-blog-b6c4a.firebaseio.com/posts/' + context.params.id + '.json')
+      .then(res => {
+        return {
+          loadedPost: res.data
         }
       })
-    }, 1000)
-
+      .catch(e => context.error(e))
   }
 }
 </script>
