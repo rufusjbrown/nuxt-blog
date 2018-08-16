@@ -56,9 +56,9 @@ const createStore = () => {
         vuexContext.commit('setPosts', posts)
       },
       authenticateUser(vuexContext, authData) {
-        let authUrl = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyCEFYYwB574kt1frbixyOovoc6_Z52uUD0'
+        let authUrl = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=XXXXXXXXXXX'
         if (!authData.isLogin) {
-          authUrl = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyCEFYYwB574kt1frbixyOovoc6_Z52uUD0'
+          authUrl = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=XXXXXXXXXXX'
         } 
         return this.$axios
           .$post(authUrl, {
