@@ -67,11 +67,13 @@ module.exports = {
   },
   // environment variable
   env: {
-    baseUrl: process.env.BASE_URL || 'https://nuxt-blog-b6c4a.firebaseio.com'
+    baseUrl: process.env.BASE_URL || 'https://nuxt-blog-b6c4a.firebaseio.com',
+    fbAPIKey: 'AIzaSyCEFYYwB574kt1frbixyOovoc6_Z52uUD0'
   },
   // can overwrite router settings
   router: {
-    linkActiveClass: 'active'
+    linkActiveClass: 'active',
+    middleware: 'log'
   },
 
   transition: { 
